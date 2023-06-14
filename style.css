@@ -1,0 +1,280 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+  --fs-body: 1.6rem;
+  --fs-heading1: 4rem;
+  --fs-title: 2rem;
+  --fs-paragraph: 1.4rem;
+
+  --ff-heading: 'Staatliches', cursive;
+  --ff-text: 'Palanquin', sans-serif;
+
+
+  --bg-primary: hsl(233, 100%, 97%);
+  --bg-header: hsl(218, 17%, 62%);
+  --bg-heading1: hsl(275, 18%, 79%);
+  --bg-title: hsl(312, 91%, 96%);
+
+  --fc-heading1: #FFFFFF;
+  --fc-paragraph: hsl(274, 84%, 12%);
+  --fc-title: hsl(232, 17%, 35%);
+}
+
+body {
+  font-size: var(--fs-body);
+  background-color: var(--bg-primary);
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+header {
+  background-color: var(--bg-header);
+  display: grid;
+  place-items: center;
+  padding: 3.2rem 0;
+}
+
+header img {
+  width: 13.7rem;
+  height: 13rem;
+}
+
+header h1 {
+  font: 400 var(--fs-heading1)/3.4rem var(--ff-heading);
+  letter-spacing: 0.05em;
+  color: var(--fc-heading1);
+  background-color: var(--bg-heading1);
+  text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  width: 100%;
+  padding: 0.8rem 0;
+  margin-top: 3.2rem;
+}
+
+header .text-header {
+  display: none;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.6rem 3.2rem 6rem;
+}
+
+main .text-body {
+  max-width: 31.5rem;
+  font: 400 var(--fs-paragraph)/1.5rem var(--ff-text);
+  color: var(--fc-paragraph);
+  text-align: center;
+  margin-bottom: 6.4rem;
+}
+
+.cards {
+  display: grid;
+  gap: 3.2rem;
+}
+
+.cards .card {
+  max-width: 32rem;
+  position: relative;
+  height: fit-content;
+  animation: downtop 700ms 300ms backwards;
+}
+
+.cards .card img {
+  transition: all 200ms;
+}
+
+.cards .card img:hover {
+  transform: scale(1.1);
+  filter: brightness(0.5);
+}
+
+.cards .card h2 {
+  position: absolute;
+  top: 1.6rem;
+  right: 1.6rem;
+  font: 400 var(--fs-title)/3.4rem var(--ff-heading);
+  letter-spacing: 0.05em;
+  color: var(--fc-title);
+  background-color: var(--bg-title);
+  border-radius: 20px;
+  padding: 0 2.4rem;
+  animation: topdown 800ms 500ms backwards;
+}
+
+.cards .card:nth-child(5) {
+  display: none;
+}
+
+.cards .card:nth-child(6) {
+  display: none;
+}
+
+footer {
+  display: none;
+}
+
+@keyframes topdown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes downtop {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 900px) {
+  .info {
+    display: flex;
+  }
+
+  header {
+    display: flex;
+    flex-direction: column;
+    width: 37.7rem;
+    height: 100vh;
+    position: fixed;
+  }
+
+  header img {
+    width: 21.5rem;
+    height: 16.7rem;
+  }
+
+  header .text-header {
+    display: block;
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 1.8rem;
+    line-height: 1.5;
+    text-align: center;
+    color: #FFFFFF;
+    max-width: 27.5rem;
+    margin-top: 3.2rem;
+  }
+
+  main .text-body {
+    display: none;
+  }
+
+  main {
+    margin-left: 37.7rem;
+    gap: 5rem;
+    padding-bottom: 2.4rem;
+  }
+
+  .cards .card:nth-child(5) {
+    display: inline;
+  }
+  
+  .cards .card:nth-child(6) {
+    display: inline;
+  }
+  
+  .cards {
+    grid-template-areas: 
+    'A B'
+    'C B'
+    'C D'
+    'E F';
+  }
+
+  .card:nth-child(1) {
+    grid-area: A;
+  }
+
+  .card:nth-child(2) {
+    grid-area: C;
+  }
+
+  .card:nth-child(3) {
+    grid-area: D;
+  }
+
+  .card:nth-child(4) {
+    grid-area: B;
+  }
+  .card:nth-child(5) {
+    grid-area: E;
+  }
+
+  .card:nth-child(6) {
+    grid-area: F;
+  }
+
+  footer {
+    display: block;
+  }
+
+  footer p, a {
+  font-family: 'Open Sans';
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 2.8rem;
+  text-align: center;
+  color: #4A4E69;
+  }
+
+  footer a {
+    text-decoration: none;
+    font-weight: 700;
+  }
+}
+
+@media (min-width: 1440px) {
+  .cards {
+    grid-template-areas: 
+    'A B C'
+    'D B E'
+    'D F E'
+    ;
+  }
+
+  .card:nth-child(1) {
+    grid-area: A;
+  }
+
+  .card:nth-child(2) {
+    grid-area: B;
+  }
+
+  .card:nth-child(3) {
+    grid-area: F;
+  }
+
+  .card:nth-child(4) {
+    grid-area: D;
+  }
+  .card:nth-child(5) {
+    grid-area: C;
+  }
+
+  .card:nth-child(6) {
+    grid-area: E;
+  }
+}
